@@ -2,7 +2,6 @@ package com.soecode.lyf.web;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +57,7 @@ public class BookController {
 	@ResponseBody
 	private Result<AppointExecution> appoint(@PathVariable("bookId") Long bookId, @RequestParam("studentId") Long studentId) {
 		if (studentId == null || studentId.equals("")) {
-			return new Result<>(false, "学号不能为空");
+			return new Result<AppointExecution>(false, "学号不能为空");
 		}
 		AppointExecution execution = null;
 		try {
